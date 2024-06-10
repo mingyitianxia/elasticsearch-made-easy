@@ -304,7 +304,7 @@ POST _reindex
     "index": "my_index_0803"
   },
   "dest": {
-    "index": "my_index_0908",
+    "index": "my_index_0808",
     "version_type": "external"
   },
   "script": {
@@ -314,11 +314,11 @@ POST _reindex
 }
 
 ####批量写入数据
-POST my_index_0909/_bulk
+POST my_index_0809/_bulk
 {"index":{"_id":1}}
 {"title":" foo bar "}
 ####执行检索操作
-GET my_index_0909/_search
+GET my_index_0809/_search
 ####定义预处理管道
 PUT _ingest/pipeline/my-trim-pipeline
 {
@@ -335,15 +335,15 @@ PUT _ingest/pipeline/my-trim-pipeline
 POST _reindex
 {
   "source": {
-    "index": "my_index_0909"
+    "index": "my_index_0809"
   },
   "dest": {
-    "index": "my_index_0910",
+    "index": "my_index_0810",
     "pipeline": "my-trim-pipeline"
   }
 }
 ####获取迁移后的检索结果
-GET my_index_0910/_search
+GET my_index_0810/_search
 ```
 
 ### 8.5.4 不同集群索引之间迁移数据
