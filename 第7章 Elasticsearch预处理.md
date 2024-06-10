@@ -192,8 +192,12 @@ PUT my_index_0705
         "type": "keyword"
       }
     }
+  },
+  "aliases": {
+    "index_test_b": {}
   }
 }
+
 ####批量写入数据，和my_index_0704存在相同字段“field_a”。
 POST my_index_0705/_bulk
 {"index":{"_id":1}}
